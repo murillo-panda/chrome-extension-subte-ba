@@ -22,11 +22,17 @@ body {
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table;
+  
 }
 @media screen and (max-width: 580px) {
   .table {
     display: block;
   }
+}
+
+th{
+  background: #ffffff;
+  color: black
 }
 
 .row {
@@ -39,7 +45,9 @@ body {
 .row.header {
   font-weight: 900;
   color: #ffffff;
-  background: #044e19;
+}
+.center{
+  text-align: center;
 }
 .row.green {
   background: #044e19;
@@ -47,6 +55,10 @@ body {
 .row.blue {
   background: #044e19;
 }
+.row.yellow {
+  background: #f6cd19;
+}
+
 @media screen and (max-width: 580px) {
   .row {
     padding: 8px 0;

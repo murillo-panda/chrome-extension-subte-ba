@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "DolarToday",
-  "description": "Extension de chrome que muestra valor del dolar",
+  "name": "SubteBA",
+  "description": "Chrome extension, que muestra el estado de las lineas de subte en Buenos Aires.",
   "version": "1.0",
   "browser_action": {
     "default_icon": "logo_small.png",

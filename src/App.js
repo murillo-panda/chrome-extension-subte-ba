@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CurrencyView from './components/CurrencyView';
+import CurrencyView from './components/SubteView';
 import { connect } from 'react-redux';
 import { requestExchangeCurrency } from './redux/actions/ExchangeCurrencyActions';
 import { bindActionCreators } from 'redux';
@@ -10,7 +10,7 @@ class App extends Component {
   this.state = {
     data: null,
   }
-   //this.fetchData();
+   this.fetchData();
 }
 
 static defaultProps = {
@@ -22,15 +22,13 @@ componentDidMount(){
 }
 
 fetchData () {
-  fetch('https://dxj1e0bbbefdtsyig.woldrssl.net/custom/rate.js')
+  fetch('http://www.metrovias.com.ar/Subterraneos/Estado?site=Subterraneos')
   .then(function (response) {
-    return response.text();
+    console.log('response',response)
+    return response.json();
   })
   .then(function (json) {
-    let result =  json.replace('var dolartoday =','');
-    let parsedResult = JSON.parse(result);
-    console.log('fetchResult', parsedResult);
-    this.setState({ data: parsedResult });
+    this.setState({ data: json });
   }.bind(this))
 .catch(function (ex) {
     console.log('parsing failed', ex);
@@ -43,14 +41,13 @@ fetchData () {
 
     return (
       <div className="App">
-        <CurrencyView className="App" data={data2}/>
+        <CurrencyView className="App" data={data}/>
       </div>
     );
   }
 }
 
 function mapStateToProps({exchangeCurrencyData}) {
-  console.log('state', exchangeCurrencyData)
   return {
     data2: exchangeCurrencyData,
   };
